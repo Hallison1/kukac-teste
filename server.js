@@ -1,6 +1,7 @@
 var express = require('express');
 var Request = require("request");
 var app = express();
+var path = require('path');
 
 app.use(express.json());
 
@@ -19,6 +20,13 @@ app.post('/enviar', function(req, resp){
       resposta.rendaPercapita = formulario.renda / formulario.numeroDependentes
       resp.json(resposta);
   });
+
+});
+
+
+app.get('/teste', function(req, resp){
+
+    resp.sendFile(path.join(__dirname + '/app/index.html'));
 
 });
 
